@@ -1,10 +1,10 @@
 # Work Day Scheduler
 
 ## Description 
-This project is a web page that allows you to input events into a time sheet and save them, when the time on the sheet is <br> past tense the text area will turn gray, when it is current the text area will turn pastel red, when the time is future tense the text area will turn green. 
+This project is a web page that allows you to input events into a time sheet and save them, when the time on the sheet is past tense<br> the text area will turn gray, when it is current the text area will turn pastel red, when the time is future tense the text area will turn green. 
 
 ## Dependencies
-Any web browser
+Any web browser<br>
 Any OS
 
 ## Installing 
@@ -14,7 +14,7 @@ N/A
 N/A
 
 ## Authors 
-Blayne Fuller
+Blayne Fuller<br>
 UW bootcamp resources
 
 ## License
