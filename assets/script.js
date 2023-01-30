@@ -1,12 +1,11 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+//wraps all the code so it takes place after the dom is loaded
 $(document).ready(function() {
+//global variable for hours
+  var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 //displays the current date in the page header
 var currentDay = dayjs().format('MMM D, YYYY')
 var dayDisp = $('#currentDay')
 dayDisp.text(currentDay)
-
 //saves the users text input to a key corresponding to the savebtns parent id
   $('.saveBtn').click(function(){
     var inputValue = $(this).siblings('.description').val()
@@ -20,18 +19,21 @@ dayDisp.text(currentDay)
     console.log( key + " = " + value);
   }
 //adds local storage values to corresponding text areas
-var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 for (var i = 0; i < hours.length; i++) {
   var hour = hours[i];
   var item = localStorage.getItem('hr-' + hour);
   $('#hr-' + hour).children('textarea').val(item);
-}
-
-
-hours 
- // TODO: Add code to apply the past, present, or future class to each time
-    // block by comparing the id to the current hour. HINTS: How can the id
-    // attribute of each time-block be used to conditionally add or remove the
-    // past, present, and future classes? How can Day.js be used to get the
-    // current hour in 24-hour time?
+} 
+// adds classes depending on the time of day
+    var timeOfDay = dayjs().format('H')
+    for (var i = 0; i < hours.length; i++){
+      var hour = hours[i]
+      if(timeOfDay < hour){
+        $('#hr-' + hour).addClass('future')
+      } else if (timeOfDay > hour) {
+        $('#hr-' + hour).addClass('past')
+      } else {
+        $('#hr-' + hour).addClass('present')
+      }
+    }
 })
